@@ -14,7 +14,7 @@ jobs:
         run: echo Hello, world!
 
   docker:
-    uses: Sidevi-bootlabs/first_workflow/.github/workflows/workflow1.yml@main
+    uses: Sidevi-bootlabs/ first_workflow/.github/workflows/workflow1.yml@main
     with:
       image_name: sri-task
       tag: v1
