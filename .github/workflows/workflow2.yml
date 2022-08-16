@@ -2,6 +2,11 @@ name: Reusable Workflow user
 
 on: 
    workflow_call:
+     inputs:
+       username:
+          required: true
+          type: string
+    
 
 jobs:
   test:
