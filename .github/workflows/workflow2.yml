@@ -1,24 +1,40 @@
+
 name: Reusable Workflow user
 
-on: 
-   workflow_call:
-     inputs:
-       username:
-          required: true
-          type: string
-    
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  test:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2.1.0
-#       # here is step that generates HTML file with python
-#       - run: sudo apt install tidy
-# #       - run: tidy page.html > page2.html
-      - name: Print generated page
-        run: cat test.html
-        
-  html:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello
+
+  docker:
     uses: Sridevi-bootlabs/first_workflow/.github/workflows/workflow1.yml@main
-    
+    with:
+      image_name: azuret4
+      tag: v1
+    secrets:
+      registry_username: ${{secrets.REGISTRY_USERNAME}}
+      registry_password: ${{secrets.REGISTRY_PASSWORD}}
+      
