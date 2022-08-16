@@ -1,18 +1,18 @@
 name: Reusable Workflow user
 
-on: push
+on: workflow_call
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.1.0
+      - uses: Sridevi-bootlabs/first_workflow/.github/workflows/workflow1.yml@main
 #       # here is some step that generates HTML file with python
 #       - run: sudo apt install tidy
 # #       - run: tidy page.html > page2.html
       - name: Print generated page
         run: cat page2.html
         
-  html:
-    uses: Sridevi-bootlabs/first_workflow/.github/workflows/workflow1.yml@main
+#   html:
+#     uses: Sridevi-bootlabs/first_workflow/.github/workflows/workflow1.yml@main
     
