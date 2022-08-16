@@ -11,7 +11,7 @@ jobs:
 #       - run: sudo apt install tidy
 # #       - run: tidy page.html > page2.html
       - name: Print generated page
-        run: cat page2.html
+        run: cat test.html
         
   html:
     uses: Sridevi-bootlabs/first_workflow/.github/workflows/workflow1.yml@main
