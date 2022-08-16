@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.1.0
-#       # here is some step that generates HTML file with python
+#       # here is sosse step that generates HTML file with python
 #       - run: sudo apt install tidy
 # #       - run: tidy page.html > page2.html
       - name: Print generated page
